@@ -8,6 +8,8 @@ export const UserContextProvider = ({
 }: Readonly<{ children: React.ReactNode }>) => {
 	const userProps = useUsers();
 
+	if(userProps.users == null && !userProps.loading) return <div>Failed to load users</div>;
+
 	return (
 		<UserContext.Provider value={userProps}>
 			{children}

@@ -23,8 +23,8 @@ export function useUsers() {
 				const data = parseUserData(await response.json());
 				setUsers(data);
 				setError(null);
-			} catch(error) {
-				console.error(error)
+			} catch (error) {
+				console.error(error);
 				setError("An error occurred during data fetching.");
 			}
 			setLoading(false);

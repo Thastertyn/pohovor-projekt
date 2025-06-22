@@ -10,6 +10,7 @@ export type Task = {
 	finished: boolean;
 	assignedTo: number; // User ID
 	createdAt: React.RefObject<Date>;
+	due: string;
 	text: string;
 };
 
