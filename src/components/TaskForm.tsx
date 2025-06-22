@@ -10,6 +10,7 @@ import {
 	Button,
 	Card,
 	CardHeader,
+	Skeleton,
 	TextField,
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -37,6 +38,7 @@ const TaskForm: React.FC = () => {
 	const creationDate = useRef<Date>(new Date());
 
 	function addTask(data: FormValues) {
+		creationDate.current = new Date();
 		const currentIdMaxId = Math.max(...tasks.map((task) => task.id)) + 1;
 		const newId = Math.max(currentIdMaxId, 1);
 
@@ -53,8 +55,7 @@ const TaskForm: React.FC = () => {
 		reset();
 	}
 
-	// TODO make a skeleton
-	if (loading) return <div>Loading...</div>;
+	if (loading) return <Skeleton className="task-form-skeleton" />;
 
 	// TODO Better error display
 	if (users == null) return <div>{error}</div>;

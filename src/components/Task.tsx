@@ -24,7 +24,7 @@ const TaskComponent: React.FC<TaskComponentProps> = ({ task }) => {
 
 	return (
 		<ListItem
-			className="task-list-item"
+			className={`task-list-item ${task.finished && "finished"}`}
 			onClick={() => navigate(`/task/${task.id}`)}
 		>
 			<Grid container spacing={2} alignItems="center" width={"100%"}>
@@ -38,13 +38,10 @@ const TaskComponent: React.FC<TaskComponentProps> = ({ task }) => {
 						Assigned to: {assignedToUser}
 					</Typography>
 				</Grid>
-				<Grid size={3}>
+				<Grid size={4}>
 					<Typography variant="body1" color="text.secondary">
 						Due: {task.due}
 					</Typography>
-				</Grid>
-				<Grid size={1}>
-					<input type="checkbox" checked={task.finished} disabled={true} />
 				</Grid>
 			</Grid>
 		</ListItem>

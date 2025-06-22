@@ -23,3 +23,14 @@
 .task-list-item:hover {
 	background-color: #f0f0f0;
 }
+
+.task-list-item.finished {
+	text-decoration: line-through;
+	color: #888;
+}
+
+.task-form-skeleton {
+	width: 50vw;
+	max-width: 1000px;
+	height: 100px;
+}
