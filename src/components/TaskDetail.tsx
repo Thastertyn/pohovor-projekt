@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { UserContext } from "../contexts/userContext";
 import type { User } from "../utils/types";
+import TaskNotFound from "./TaskNotFound";
 
 const TaskDetail: React.FC = () => {
 	const navigate = useNavigate();
@@ -26,7 +27,7 @@ const TaskDetail: React.FC = () => {
 
 	const taskInQuestion = tasks.find((task) => task.id === numerizedTaskId);
 
-	if (!taskInQuestion) return <div>Task not found</div>;
+	if (!taskInQuestion) return <TaskNotFound/>;
 
 	let userInQuestion: User | undefined;
 	if (users && !loading) {
